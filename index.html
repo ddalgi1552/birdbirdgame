@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{margin:0;}
+    h1{text-align: center;
+      font-size: 30px;
+    }
+    .head{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: start;
+    }
+    p{
+      border: 2px solid skyblue;
+
+    }
+    div{width:100%;
+    height:100%;
+    display:flex;
+    align-items: space-between;
+    justify-content: center;}
+    canvas{
+
+
+      width: 80vw;
+      height: 100vh;
+      background-image: url("https://img.freepik.com/premium-photo/white-clouds-on-blue-sky-background-abstract-seasonal-wallpaper-sunny-day-atmosphere_548821-3621.jpg?w=2000");
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="head">
+      <h1>비둘기를 피해라!
+        <br>
+        쫄보
+        <br>
+        독수리</h1>
+      <p>SPACE BAR= 날기</p>
+      <p id = "text2">timer</p>
+      <p id= "score">0</p>
+    </div>
+    <canvas id="canvas">
+    </canvas>
+    <script src="main.js"></script>
+  </div>
+
+  
+</body>
+</html>
