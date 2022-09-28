@@ -5,23 +5,44 @@ canvas.width= window.innerWidth;
 canvas.height= window.innerHeight;
 
 
-      //타이머입니다
-      var currentTime = new Date();//var Date는 설계도. var currentTime은 내가 만든 상자
-      var cuTime = currentTime.getTime();
-      //cuTime이라는 변수에다가 currentTime(new Date)에서 getTime해줘. getTime=1970년도 1월부터 지금까지의 시간을 가져와
 
-      var myTimer=setInterval(myFunction, 1000);
-      //setInterval 첫번째 인자의 함수를 특정시간마다 실행해줘.
-      
-      //function= 이 내부에는 myFunction이라는게 들어있고 그 내용물은 { }안의 것이야~
 
-      var str2 = document.getElementById("text2");
-      function myFunction(){
-        var time= new Date();
-        var t= (time.getTime() - cuTime)/1000;
-        str2.innerHTML=t;
-      }
+setInterval(ddd,100);
+let score=0;
+
+var t=0;
+var str2 = document.getElementById("text2");
+function ddd(){
+  t++;
+  makeBird();
+  console.log(t);
+  str2.innerHTML=t;
+  
+}
+
+function makeBird(){
+
+  var feather = document.createElement("img");
+  feather.src="feather.png";
+  feather.id = "featherImg";
+  feather.className = "featherBox";
+  feather.style.position="absolute";
+  let a= Math.random()*window.innerWidth-50;
+  let b= Math.random()*window.innerHeight-50;
+  feather.style.left=a + "px";
+  feather.style.top=b + "px";
+
+  
+  document.body.appendChild(feather);
+
+  feather.onclick=function(){
+    this.remove();
+    score++; 
+    display. innerHTML = score;
     
+  }
+
+}
 
 
 
@@ -62,12 +83,13 @@ var timer = 0;
 var cactus여러개= [];
 var jumptimer=0;
 var animation;
-
+var sc = 0;
 function 프레임마다실행할코드(){
   animation = requestAnimationFrame(프레임마다실행할코드);
   timer++;
 
   ctx.clearRect(0,0, canvas.width, canvas.height);
+  
 
   if(timer % 200 === 0){
     var cactus= new Cactus();
@@ -77,15 +99,19 @@ function 프레임마다실행할코드(){
     //x좌표가 0 미만이면 제거
     if(a.x < 0){
       o.splice(i, 1)
-
+      sc++;
+      display2. innerHTML = sc;
     }
 
+
+    
     crash(dino, a);
     
     a.x--;
     a.draw();
   })
 
+  
   if (Jumping == true){
     dino.y-=3;
     jumptimer++;
@@ -116,7 +142,6 @@ function crash(dino, cactus){
     location.reload();
     alert("아이구! 부딪히셨네요!");
     str2.innerHTML="GAME OVER!";
-
   }
 }
 
@@ -129,5 +154,4 @@ document.addEventListener('keydown',function(e){
       Jumping = true;
     }
   })
-
 
